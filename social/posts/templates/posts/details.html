@@ -1,0 +1,14 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+<h3>{{post.title}}</h3>
+<div>
+  <div>
+    {{post.body}}
+  </div>
+  <div>
+    {{post.created_at}}
+  </div>
+</div>
+<a href="/posts">Go Back</a>
+{% endblock %}

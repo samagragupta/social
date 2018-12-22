@@ -23,3 +23,4 @@ def details(request, id):
   }
 
   return render(request, 'posts/details.html', context)
+  
