@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from .models import Posts
+from .forms import PersonForm
+
 
 # Create your views here.
 def index(request):
@@ -24,3 +26,12 @@ def details(request, id):
 
   return render(request, 'posts/details.html', context)
   
+def create_form(request):
+  form = PersonForm(request.POST or None)
+  if form.is_valid():
+    form.save()
+
+  context = {
+    'form': form
+  }
+  return render(request, 'posts/create.html', context)
