@@ -4,6 +4,8 @@ from django.http import HttpResponse
 from .models import Posts
 from .forms import PersonForm
 
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 def index(request):
@@ -26,6 +28,7 @@ def details(request, id):
 
   return render(request, 'posts/details.html', context)
   
+@login_required(login_url="/accounts/signup")
 def create_form(request):
   form = PersonForm(request.POST or None)
   if form.is_valid():
