@@ -1,6 +1,9 @@
 {% extends "base.html" %}
+{% load static %}
+
 
 {% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'social/css/index.css' %}">
     <h1>Welcome to Sprite Social</h1>
     
     <a href="{% url 'posts:index' %}" class="btn btn-simple link">Posts</a>

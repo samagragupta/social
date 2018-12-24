@@ -1,6 +1,8 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'social/css/index.css' %}">
     <h1>Logged in</h1>
     <a href="{% url 'posts:index' %}" class="btn btn-simple link">Posts</a>
     <a href="{% url 'posts:form' %}" class="btn btn-simple link">Create Posts</a>

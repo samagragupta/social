@@ -1,11 +1,18 @@
 {% extends 'posts/post_base.html' %}
+{% load static %}
 
 
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'social/css/index.css' %}">
 <h3>{{title}}</h3>
 <ul>
   {% for post in posts %}
-    <li><a href="/posts/details/{{post.id}}">{{post.title}}</a></li>
+    <li><a href="/posts/details/{{post.id}}" class="posts">{{post.title}}</a></li>
   {% endfor %}
 </ul>
+{% if user.is_authenticated %}
+  <a href="{% url 'posts:form' %}" class="btn btn-simple link">Create Posts</a>
+{% else %}
+  <p>To create post please login</p>
+{% endif %}
 {% endblock %}
