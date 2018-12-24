@@ -1,14 +1,12 @@
-{% extends 'posts/base.html' %}
+{% extends "posts/post_base.html" %}
 
+{% load bootstrap3 %}
 
-{% block content %}
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <div class="form-group">
-      <button type="submit" class="btn btn-success">
-      <span class="glyphicon glyphicon-ok"></span> Save
-      </button>
-  </form>
-
+{% block post_content %}
+<h4>Create New Post</h4>
+<form method="POST" id="postForm">
+	{% csrf_token %}
+	{% bootstrap_form form %}
+	<input type="submit" value="Post" class="btn btn-primary btn-large">
+</form>
 {% endblock %}
