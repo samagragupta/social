@@ -2,4 +2,6 @@
 
 {% block content %}
     <h1>Logged in</h1>
+    <a href="{% url 'posts:index' %}" class="btn btn-simple link">Posts</a>
+    <a href="{% url 'posts:form' %}" class="btn btn-simple link">Create Posts</a>
 {% endblock %}

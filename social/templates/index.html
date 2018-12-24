@@ -2,4 +2,11 @@
 
 {% block content %}
     <h1>Welcome to Sprite Social</h1>
+    
+    <a href="{% url 'posts:index' %}" class="btn btn-simple link">Posts</a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'posts:form' %}" class="btn btn-simple link">Create Posts</a>
+    {% else %}
+        <p>To create post please login</p>
+    {% endif %}
 {% endblock %}

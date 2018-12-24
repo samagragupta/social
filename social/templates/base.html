@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load staticfiles %}
+{% load static %}
 <html>
     <head>
         <meta charset="utf-8">
@@ -16,13 +16,13 @@
 
         <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
-        <link rel="stylesheet" href="{% static 'simplesocial/css/master.css'%}">
+        <link rel="stylesheet" href="{% static 'css/master.css' %}">
     </head>
     <body>
         <nav class="navbar" role="navigation" id="navbar">
             <div class="container">
 
-        <a class="navbar-brand" href="{% url 'home' %}">Star Social</a>
+        <a class="navbar-brand" href="{% url 'home' %}">Sprite Social</a>
 
                     <ul class="nav navbar-nav navbar-right">
                         {% if user.is_authenticated %}
@@ -41,7 +41,6 @@
       {% block content %}
 
       {% endblock %}
-
     </div>
         
     </body>

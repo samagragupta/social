@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from .models import Posts
@@ -31,8 +31,10 @@ def details(request, id):
 @login_required(login_url="/accounts/signup")
 def create_form(request):
   form = PersonForm(request.POST or None)
-  if form.is_valid():
-    form.save()
+  if request.method == 'POST':
+    if form.is_valid():
+      form.save()
+      return redirect('posts:index')
 
   context = {
     'form': form
